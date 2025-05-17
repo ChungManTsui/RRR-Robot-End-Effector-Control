@@ -1,0 +1,31 @@
+target_update_rate = 5   
+control_loop_rate = 50  
+
+
+result:
+Target Updates: 
+* At 5 Hz, the robot receives a new target position every 0.2 seconds.before that at 30 Hz, it received updates every 0.033 seconds.
+that mean the robot has to guess the target movement for longer between updates.
+
+
+Control Loop:
+* At 50 Hz, the control system adjusts the robot’s movement every 0.02 seconds. Before, at 1000 Hz, it was adjusting every 0.001 seconds (1 ms).
+that mean the robot can’t react as quickly or as smoothly.
+
+More Lag: 
+* The robot lags much more behind the moving target
+
+Jump:
+* The end-effector(EE) will look less smooth
+* may “jump” or appear to move in steps, because it only gets new target data every 0.2 seconds.
+
+Instability:
+* The robot may not track the target closely or may exhibit overshoot
+* With delayed updates, the robot sometimes may be not correct 
+* With delayed updates, the robot sometimes may be going past the target 
+
+Compare Task A to Task B:
+Task A: 
+end-effector(EE) closely follows the green dashed line (target path) looking smooth , not appear any lag and jump
+Task B:
+end-effector(EE) lags and not smooth, sometime may fail to track all 
